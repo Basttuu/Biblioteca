@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Biblioteca Digital</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <h1>📚 Biblioteca Digital</h1>
+    <div class="nav-links hidden" id="nav-links">
+      <button id="catalog-btn" class="btn" type="button">Catálogo</button>
+      <button id="mybooks-btn" class="btn" type="button">Mis Libros</button>
+      <button id="addbook-btn" class="btn admin-only hidden" type="button">Agregar Libro</button>
+      <button id="users-btn" class="btn admin-only hidden" type="button">Usuarios</button>
+      <button id="logout-btn" class="btn danger hidden" type="button">Cerrar Sesión</button>
+    </div>
+  </nav>
+
+  <!-- Login -->
+  <section id="login-section" class="card centered">
+    <h2>Iniciar Sesión</h2>
+    <input id="login-username" type="text" placeholder="Usuario" />
+    <input id="login-password" type="password" placeholder="Contraseña" />
+    <button id="login-btn" class="btn" type="button">Ingresar</button>
+    <p>¿No tienes cuenta? <a href="#" id="show-register">Regístrate aquí</a></p>
+  </section>
+
+  <!-- Registro -->
+  <section id="register-section" class="card centered hidden">
+    <h2>Registro</h2>
+    <input id="register-username" type="text" placeholder="Usuario" />
+    <input id="register-password" type="password" placeholder="Contraseña" />
+    <button id="register-btn" class="btn" type="button">Registrarse</button>
+    <p>¿Ya tienes cuenta? <a href="#" id="show-login">Inicia sesión</a></p>
+  </section>
+
+  <!-- Catálogo -->
+  <section id="catalog-section" class="hidden">
+    <h2>Catálogo de Libros</h2>
+    <div id="books-list" class="grid"></div>
+  </section>
+
+  <!-- Mis Libros -->
+  <section id="mybooks-section" class="hidden">
+    <h2>Mis Libros</h2>
+    <div id="mybooks-list" class="grid"></div>
+  </section>
+
+  <!-- Sección de usuarios (solo admin) -->
+  <section id="users-section" class="hidden">
+    <h3>Usuarios registrados</h3>
+    <div id="users-list"></div>
+  </section>
+
+  <!-- Modal para editar usuario -->
+  <div id="edituser-modal" class="modal-overlay hidden">
+    <div class="card modal">
+      <h4>Editar usuario</h4>
+      <input type="text" id="edit-username" placeholder="Usuario">
+      <select id="edit-role">
+        <option value="user">Usuario</option>
+        <option value="admin">Admin</option>
+      </select>
+      <div style="display:flex; gap:10px; justify-content:center; margin-top:10px;">
+        <button id="save-user-btn" class="btn">Guardar</button>
+        <button id="close-edituser" class="btn secondary">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Agregar Libro -->
+  <div id="addbook-modal" class="modal-overlay hidden">
+    <div class="card modal">
+      <h2>Agregar / Editar Libro</h2>
+      <input id="book-title" type="text" placeholder="Título" />
+      <input id="book-author" type="text" placeholder="Autor" />
+      <input id="book-genre" type="text" placeholder="Género" />
+      <textarea id="book-review" placeholder="Reseña"></textarea>
+      <div style="display:flex; gap:10px; justify-content:center; margin-top:10px;">
+        <button id="save-book-btn" class="btn" type="button">Guardar</button>
+        <button id="close-addbook" class="btn secondary" type="button">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
