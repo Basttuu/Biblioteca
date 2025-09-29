@@ -37,7 +37,7 @@ app.include_router(loans.router)
 app.include_router(recommend.router)
 
 # montar frontend
-app.mount("/app", StaticFiles(directory="frontend", html=True), name="frontend")
+app.mount("/", StaticFiles(directory="frontend", html=True), name="frontend")
 
 @app.get("/")
 def root():
